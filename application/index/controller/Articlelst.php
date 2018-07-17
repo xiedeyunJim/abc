@@ -13,8 +13,9 @@ use app\index\model\AdminCate;
 */
 class Articlelst extends Site
 {
-    public function index()
+    public function index($id)
     {
+
 
         $article = new AdminArticle;
         /*
@@ -28,7 +29,6 @@ class Articlelst extends Site
         $articles = Cache::get('articles'.input('id'));
         $hot = $article->getArticleHot(input('id'));
         $articleHot  = Cache::get('articleHot'.input('id'));
-
     	$this->assign(
     		array(
 

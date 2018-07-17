@@ -11,6 +11,7 @@ class Article extends Co{
 		$cate = new Admin_cate;	
 		if(input('')){
 			$data = input('');
+
 			$code = $article->save($data);
 			if($code){
 				return $this->success('添加文章成功','article/lst');
@@ -26,7 +27,7 @@ class Article extends Co{
 	public function lst()
 	{
 		$article = new Admin_article;
-		$data = $article->field('a.*,b.catename')->alias('a')->join('admin_cate b','a.cateid=b.id')->paginate(3);
+		$data = $article->field('a.*,b.catename')->alias('a')->join('admin_cate b','a.cateid=b.id')->order('id desc')->paginate(3);
 		$this->assign('data',$data);
 		return $this->fetch();		
 	}

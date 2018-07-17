@@ -12,12 +12,13 @@ cache可以用于select、find、value和column方法，以及其衍生方法，
 */	
 	public function getArticleId($id)
 	{
+
 		if (!Cache::get('article'.$id)) {
 			$cate = new AdminCate;
 			$allCateId = $cate->getchilrendid($id);
 			$article=db('admin_article')->order('id desc')->where('cateid',$allCateId)->paginate(2);
 			$this->cacheSetArticle($id,$article);
-			
+
 		}
 
 
@@ -43,6 +44,25 @@ cache可以用于select、find、value和column方法，以及其衍生方法，
 			$article=db('admin_article')->order('look desc')->where('cateid',$allCateId)->cache('articleHot'.$id)->limit(5)->select();						
 		}
 
+	}
+	public function getNewArticleList()
+	{
+		if(!Cache::get('getNewArticleList')){
+			$data = $this->alias('article')->field('article.id,article.title,article.site,article.look,article.like,article.create_time,article.cateid,article.detail,cate.catename,cate.site_keywords')->join('admin_cate cate','cate.id = article.cateid')->limit(10)->order('article.id desc')->cache('getNewArticleList')->select();			
+		}
+
+	}
+	public function getIndexArticleHot()
+	{
+		if(!Cache::get('getIndexArticleHot')){			
+			$this->order('like desc')->limit(5)->cache('getIndexArticleHot')->select();			
+		}
+	}
+	public function getSliderArticle()
+	{
+		if(!Cache::get('getSliderArticle')){
+			$this->where('res',1)->limit(4)->cache('getSliderArticle')->select();
+		}
 	}
 
 }	
