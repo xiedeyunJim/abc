@@ -1,0 +1,75 @@
+{layout name='layout'}
+
+<section class="Hui-article-box">
+
+<form action="" class="page-container form form-horizontal" style="margin-top: 40px;margin-left: 40px;">
+  <div class="row cl">
+      <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>上级栏目：</label>
+    <div class="formControls col-xs-8 col-sm-9">
+      <span class="select-box">
+
+        <select class="select" size="1" name="pid">
+          <option value="0">顶级分类</option>
+          {foreach $data as $key=>$vo}
+          <option value="{$vo.id}">{$vo.catename}</option>
+          {/foreach}
+        </select>
+      </span>
+    </div>
+  </div>
+<div class="row cl">
+  <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>栏目名称：</label>
+  <div class="formControls col-xs-8 col-sm-9">
+    <input type="text" class="input-text" value="" placeholder="栏目名称" id="" name="catename">
+  </div>
+</div>
+<div class="row cl">
+  <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>网站标题：</label>
+  <div class="formControls col-xs-8 col-sm-9">
+    <input type="text" class="input-text" value="" placeholder="网站标题" id="" name="site_title">
+  </div>
+</div>
+<div class="row cl">
+  <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>网站关键词：</label>
+  <div class="formControls col-xs-8 col-sm-9">
+    <input type="text" class="input-text" value="" placeholder="网站关键词" id="" name="site_keywords">
+  </div>
+</div>
+<div class="row cl">
+  <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>网站描述：</label>
+  <div class="formControls col-xs-8 col-sm-9">
+    <input type="text" class="input-text" value="" placeholder="网站描述" id="" name="site_desc">
+  </div>
+</div>
+<div class="row cl">
+    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>栏目类型：</label>
+    <div class="formControls col-xs-8 col-sm-9">
+      <div class="skin-minimal">
+        <div class="mt-20">
+            <div class="radio-box">
+              <input type="radio" id="radio-1" name="type" value="1">
+              <label for="radio-1">列表</label>
+            </div>
+            <div class="radio-box">
+              <input type="radio" id="radio-2" name="type" value="2" checked>
+              <label for="radio-2">单页 </label>
+            </div>
+              <div class="radio-box">
+              <input type="radio" id="radio-2" name="type" value="3" checked>
+              <label for="radio-2">图片列表</label>
+              </div>
+            </div>
+          <div>    
+        </div>
+      </div> 
+    </div>
+</div>
+
+<div class="row cl">
+  <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+    <button onclick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont"></i> 保存并提交审核</button>
+    <button onclick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+  </div>
+</div> 	
+</form>
+</section>

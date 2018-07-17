@@ -1,0 +1,77 @@
+{layout name='layout'}
+<!--_meta 作为公共模版分离出去-->
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<title>图片列表</title>
+</head>
+<body>
+<!--_header 作为公共模版分离出去-->
+
+<!--/_header 作为公共模版分离出去-->
+
+<!--_menu 作为公共模版分离出去-->
+
+
+<!--/_menu 作为公共模版分离出去-->
+
+<section class="Hui-article-box">
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 图片管理 <span class="c-gray en">&gt;</span> 图片列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<div class="Hui-article">
+		<article class="cl pd-20">
+			<div class="text-c"> 日期范围：
+
+				<input type="text" name="" id="" placeholder=" 图片名称" style="width:250px" class="input-text">
+				<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜图片</button>
+			</div>
+			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius"  href="add.html"><i class="Hui-iconfont">&#xe600;</i> 添加规则</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+			<div class="mt-20">
+				<form action="" method="">
+				<table class="table table-border table-bordered table-bg table-hover table-sort">
+					<thead>
+						<tr class="text-c">
+							<th width="10"><input name="" type="checkbox" value=""></th>
+							<th width="10">ID</th>
+							<th width="20">排序</th>
+							<th width="100">权限名称</th>
+							<th width="20">控制/方法</th>
+							<th width="20">级别</th>
+							<th width="20">操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						{foreach $data as $key=>$vo}			
+						<tr class="text-c">
+							<td width="10"><input name="" type="checkbox" value="" ></td>
+							<td width="10">{$vo.id}</td>
+							<td width="20"><input type="text" value="{$vo.sort}" name='{$vo.id}' placeholder="迷你尺寸" class="input-text radius size-MINI"></td>
+							<td>{$vo.title}</td>
+							<td>{$vo.name}</td>
+							<td>{$vo.level +1}级</td>
+							<td ><a style="text-decoration:none" onClick="picture_stop(this,'10001')" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a> <a style="text-decoration:none" class="ml-5"  href="edit/id/{$vo.id}" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5"  href="del/id/{$vo.id}" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+						</tr>
+						{/foreach}
+						
+						<tr><td width="10"></td><td width="10"></td><td width="30" ><input style=";" type="submit" class="btn btn-success-outline radius" value="排序" name=""></td></tr>
+					</tbody>
+				</table>
+				</form>
+			</div>
+		</article>
+	</div>
+</section>
+
+<!--_footer 作为公共模版分离出去-->
+
+<!--/_footer /作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="/static/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<!-- <script type="text/javascript" src="/static/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> -->
+<script type="text/javascript" src="/static/lib/laypage/1.2/laypage.js"></script>
+
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+
+</html>

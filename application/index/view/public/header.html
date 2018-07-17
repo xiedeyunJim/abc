@@ -1,0 +1,54 @@
+<div id="header_wrap">
+    <div id="header">
+        <div style="float: left; width: 310px;">
+            <h1>
+                <a href="/" title="宽屏大气文章类--41天鹰模板">宽屏大气文章类--41天鹰模板</a>
+                <div class="" id="logo-sub-class">
+                </div>
+            </h1>
+        </div>
+        <div id="navi">
+
+<ul id="jsddm">
+<li><a class="navi_home" href="/">首页</a></li>
+{foreach $nav as $key=>$vo}
+<li><a href="/index/{switch $vo['type']}{case 1}Articlelst{/case}{case 2}article{/case}{case 3}imglist{/case}{/switch}?id={$vo.id}">{$vo.catename}</a>
+    {if condition= "$vo['childen'] neq Null"}
+    
+        <ul>
+            <?php foreach ($vo['childen'] as $key => $value): ?>
+            <li><a href="/index/{switch $value['type']}{case 1}Articlelst{/case}{case 2}page{/case}{case 3}imglist{/case}{/switch}/index/id/{$value.id}">{$value.catename}</a></li>
+            <?php endforeach ?>
+        </ul>    
+
+    {/if}
+</li>
+ {/foreach}
+ <li><a href="/news/">行业资讯</a>
+
+</ul>
+
+            <div style="clear: both;">
+            </div>
+
+            
+        </div>
+        <div style="float: right; width: 209px;">
+            <div class="widget" style="height: 30px; padding-top: 20px;">
+                <div style="float: left;">
+      <form  name="formsearch" action="/plus/search.php"><input type="hidden" name="kwtype" value="0" />                
+<input name="q" type="text" style="background-color: #000000;padding-left: 10px; font-size: 12px;font-family: 'Microsoft Yahei'; color: #999999;height: 29px; width: 160px; border: solid 1px #666666; line-height: 28px;" id="go" value="在这里搜索..." onfocus="if(this.value=='在这里搜索...'){this.value='';}"  onblur="if(this.value==''){this.value='在这里搜索...';}" />
+        </form>
+                        </div>
+                <div style="float: left;">
+                    <img src="__INDEX__/images/search-new.png" id="imgSearch" style="cursor: pointer; margin: 0px;
+                        padding: 0px;" onclick="subForm()"  /></div>
+                <div style="clear: both;">
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+</div>

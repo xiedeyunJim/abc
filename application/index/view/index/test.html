@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	{include file='public/headerJs'/}
+</head>
+<body>
+	<ul>
+		{foreach $data as $key=>$vo}
+		<li>{$vo.id}</li>
+		{/foreach}
+	</ul>
+	{$data|raw}
+</body>
+</html>

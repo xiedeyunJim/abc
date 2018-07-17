@@ -1,0 +1,105 @@
+{layout name='layout'}
+<!--_meta 作为公共模版分离出去-->
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<title>图片列表</title>
+</head>
+<body>
+<!--_header 作为公共模版分离出去-->
+
+<!--/_header 作为公共模版分离出去-->
+
+<!--_menu 作为公共模版分离出去-->
+
+
+<!--/_menu 作为公共模版分离出去-->
+
+<section class="Hui-article-box">
+  <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 图片管理 <span class="c-gray en">&gt;</span> 图片列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+  <div class="Hui-article">
+    <article class="cl pd-20">
+      <div class="mt-20 skin-minimal">
+        <form action="" method="">
+        <table class="table table-border table-bordered table-bg table-hover table-sort">
+          <thead>
+            <tr class="text-c">
+              <th width="20">配置名称</th>
+              <th width="20">配置值</th>
+            </tr>
+          </thead>
+          <tbody>
+            {foreach $data as $key=>$vo}
+            <tr>
+              <td width="10%">{$vo.cnname}</td>
+              <td width="20%">
+                <!--单选框-->
+              <?php if($vo['type'] ==1):?>
+                <input value="<?php echo $vo['value'] ?>" type="text" name="<?php echo $vo['enname'] ?>" class="input-text radius" value="<?php echo $vo['value'] ?>">
+                <!--单选框-->
+                <!--文本域-->
+              <?php elseif($vo['type']==2):?>
+              <textarea name="<?php echo $vo['enname'] ?>" cols="" rows="" class="textarea" placeholder="说点什么..."><?php echo $vo['value'] ?></textarea>
+                <!--文本域-->
+                <!--单选框-->
+              <?php elseif($vo['type']==3):
+                  if($vo['values']){
+                    $arr = explode(',',$vo['values']);
+                  }
+                  foreach($arr as $k1=>$v1):?>
+                <div class="radio-box">
+                  <input <?php if($vo['value']==$v1){echo "checked='checked'";};?>type="radio" id="radio-2" name="<?php echo $vo['enname'] ?>"  value="<?php echo $v1 ?>">
+                  <label for="radio-2"><?php echo $v1;?></label>
+                </div>
+                <?php endforeach;?>
+                <!--单选框-->
+                <!--多选框-->
+                <?php elseif($vo['type']==4):?>
+                  <div class="check-box">
+                    <input <?php if($vo['value']==$vo['values']){echo "checked='checked'";};?> type="checkbox" id="checkbox-1" name="<?php echo $vo['enname'] ?>"  value="<?php echo $vo['values'] ?>">
+                    <label for="checkbox-1"><?php echo $vo['values'];?></label>
+                  </div>
+                <!--多选框-->
+                <!--下拉框-->
+                <?php elseif($vo['type']==5):
+                  if($vo['values']){
+                    $arr2 = explode(',',$vo['values']);
+                  }
+                ?>
+                <select class="select" name="<?php echo $vo['enname'] ?>">
+                  <?php foreach($arr2 as $k2=>$v2):?>
+                  <option value="<?php echo $v2;?>"><?php echo $v2; ?></option>
+                  <?php endforeach;?>
+                </select>    
+                <?php endif;?>
+                <!--下拉框-->
+              </td>
+            </tr>
+            {/foreach}
+          </tbody>
+        </table>
+          <div class="c1">
+            <div>
+              <input type="submit" class="btn btn-success radius" name="">
+            </div>
+          </div>
+        </form>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!--_footer 作为公共模版分离出去-->
+
+<!--/_footer /作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="/static/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<!-- <script type="text/javascript" src="/static/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> -->
+<script type="text/javascript" src="/static/lib/laypage/1.2/laypage.js"></script>
+
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+
+</html>

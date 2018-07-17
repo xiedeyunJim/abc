@@ -1,0 +1,28 @@
+{layout name='layout'}
+
+<section class="Hui-article-box">
+<form action=""  style="margin-top: 40px;margin-left: 40px;">
+<div class="row c1" style="margin-bottom: 50px;">
+  <span class="select-box">
+  <select class="select" size="1" name="pid">
+    <option value="0">顶级权限</option>
+    {foreach $data as $key=>$vo}
+    <option value="{$vo.id}">{$vo.title}</option>
+    {/foreach}
+    </select>
+  </span>
+</div>
+<div class="row cl">
+  <label for="radio-1">权限名称</label>
+	<input name="title" type="text" placeholder="权限名称" class="input-text radius size-L">
+</div>
+<div class="row cl">
+  <label for="radio-1">方法/控制</label>
+  <input name="name" type="text" placeholder="方法/控制" class="input-text radius size-L">
+</div>
+<div class="skin-minimal">
+<div class="row c1">
+	<input type="submit" class="btn btn-primary-outline radius" value="保存信息"  name="">
+</div>	
+</form>
+</section>
