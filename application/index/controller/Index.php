@@ -20,12 +20,17 @@ class Index extends Site
 		$article->getSliderArticle();
 		$getSliderArticle = Cache::get('getSliderArticle');
 
+		$cate = new \app\index\model\AdminCate;
+		//顶部推荐
+		$cate->getIndexRecTop();
+		$getIndexRecTop = Cache::get('getIndexRecTop');
 
 		$this->assign(array(
 			'getIndexArticleHot'=>$getIndexArticleHot,
 			'getNewArticleList'=>$getNewArticleList,
 			'links'=>$links,
 			'getSliderArticle'=>$getSliderArticle,
+			'getIndexRecTop'=>$getIndexRecTop,
 		));
     	return $this->fetch();
     }

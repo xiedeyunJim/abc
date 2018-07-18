@@ -57,6 +57,18 @@ class AdminCate extends Model{
 		}
 		return $arr;
 	}
+	public function getIndexRecTop()
+	{
+		if(!Cache::get('getIndexRecTop')){
+			$this->order('id desc')->where('rec_top',1)->cache("getIndexRecTop")->select();			
+		}	
+	}
+	public function getIndexRecBottom()
+	{
+		if(!Cache::get('getIndexRecBottom')){
+			$this->order('id desc')->where('rec_bottom',1)->cache("getIndexRecBottom")->select();	
+		}
+	}
 
 }	
 

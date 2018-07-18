@@ -1,6 +1,6 @@
 {layout name='layout'}
 
-<section class="Hui-article-box">
+<section class="">
 
 <form action="" method="post" class="page-container form form-horizontal" style="margin-top: 40px;margin-left: 40px;">
  <input type="hidden" name="id" value="{$cates.id}">
@@ -66,9 +66,27 @@
     </div>
 </div>
 <div class="row cl">
+    <label class="form-label col-xs-4 col-sm-2">首页顶部推荐：</label>
+    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+        <div class="check-box">
+            <input {if $cates.rec_top ==1}checked="checked"{/if} type="checkbox" name="rec_top" id="checkbox-1" value="1">
+            <label for="checkbox-1">&nbsp;</label>
+        </div>
+    </div>
+</div>
+<div class="row cl">
+    <label class="form-label col-xs-4 col-sm-2">首页底部推荐：</label>
+    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+        <div class="check-box">
+            <input {if $cates.rec_bottom ==1}checked="checked"{/if} type="checkbox" name="rec_bottom" id="checkbox-1" value="1">
+            <label for="checkbox-1">&nbsp;</label>
+        </div>
+    </div>
+</div>
+<div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">详细内容：</label>
             <div class="formControls col-xs-8 col-sm-9"> 
-                <script id="editor" name='content' type="text/plain" style="width:100%;height:400px;">{if $cates.content neq Null}{$cates.content}{/if}</script> 
+                <script id="editor" name='content' type="text/plain" style="width:100%;height:400px;">{$cates.content}</script> 
             </div>
         </div>
 <div class="row cl">

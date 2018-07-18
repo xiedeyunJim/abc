@@ -84,11 +84,11 @@
             <div class="xh_area_h_3">
                 <div class="xh_area_title">
                     <a href="javascript:" class="t">New 最近更新</a> <span class="r">
-                    {foreach $nav[2]['childen'] as $key=>$vo}
+                    {foreach $getIndexRecTop as $key=>$vo}
 
-                    <a href="{:url('Articlelst/index',array('id'=>$vo['id']))}">{$vo.catename}</a>
-
+                    <a href="/index/{switch $vo['type']}{case 1}Articlelst{/case}{case 2}article{/case}{case 3}imglist{/case}{/switch}/index/id/{$vo.id}">{$vo.catename}</a>
                     {/foreach}
+  
                      </span>
                 </div>
                 <br>
@@ -111,7 +111,7 @@
                                      <span title="{$vo.like}人赞" class="xh_love"><span class="textcontainer"><span>{$vo.like}</span></span> <span class="bartext"></span></span> <span title="{$vo.look}人浏览" class="xh_views">{$vo.look}</span>
                                 </div>
                             </div>
-                            <span class="cat"><a href="{:url('Articlelst/index',array('id'=>$vo['cateid']))}" title="{$vo.title}"
+                            <span class="cat"><a href="{:url('Articlelst/index',array('id'=>$vo['cateid']))}" title="查看 死飞车 中的全部文章"
                                 rel="category tag">{$vo.catename}</a></span>
                         </div>
 {/foreach}                        

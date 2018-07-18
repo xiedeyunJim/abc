@@ -240,8 +240,8 @@ function ILike(th, v) {
                 <div class="widget single" style="margin-bottom: 0px; margin-left: 0px; margin-top: 40px;
                     padding-bottom: 0px;" id="newdigg">
                     <div class="single_views" onmouseout="ILike(this,false)" onmouseover="ILike(this,true)">
-                        <span class="textcontainer"><span class="votecount26536">0</span></span> <span class="bartext voteid26536"><a href="#"
-                                id="aZanImg" onclick="javascript:postDigg('good',382)"></a></span><span class="text" id="spanZan">赞</span>
+                        <span class="textcontainer"><span class="votecount26536">{$article.like}</span></span> <span class="bartext voteid26536"><a href="#"
+                                id="aZanImg" dataid='{$article.id}'></a></span><span class="text" id="spanZan">赞</span>
                         <span class="text love">人</span>
                     </div>
 
@@ -318,4 +318,18 @@ function ILike(th, v) {
 
  
 </body>
+<script type="text/javascript">
+
+    $("#aZanImg").click(function(){
+        var dataid = $('#aZanImg').attr('dataid');
+        $.ajax({
+            url:"/index/article/like/id/"+dataid,
+            dataType:'json',
+            type:'get',
+            success:function(data){
+                $(".votecount26536").html(data.like);
+            },
+        })
+    })
+</script>
 </html>

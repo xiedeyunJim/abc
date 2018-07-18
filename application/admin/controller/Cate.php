@@ -15,6 +15,7 @@ class Cate extends Co{
 			str_replace，切换中英文逗号
 		*/
 		if(input("")){
+			dump(input(''));die;
 			$_data = input('');
 			str_replace('，', ',', $_data['site_title']);
 			str_replace('，', ',', $_data['site_keywords']);

@@ -12,13 +12,12 @@ cache可以用于select、find、value和column方法，以及其衍生方法，
 */	
 	public function getArticleId($id)
 	{
-
 		if (!Cache::get('article'.$id)) {
 			$cate = new AdminCate;
 			$allCateId = $cate->getchilrendid($id);
 			$article=db('admin_article')->order('id desc')->where('cateid',$allCateId)->paginate(2);
 			$this->cacheSetArticle($id,$article);
-
+			
 		}
 
 
